@@ -1,19 +1,46 @@
 package components;
 
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Function extends Element {
 	
+	VBox pane;
+	
 	public Function(String text, double x, double y) {
 		super(text, x, y);
 		
-		Rectangle r = new Rectangle(0, 0, 100, 60);
-		r.setFill(Color.GREEN);
-		r.setArcHeight(15);
-		r.setArcWidth(15);
-		r.setStroke(Color.BLACK);
-		this.setBack(r);
+		Rectangle r=new Rectangle();
+		
+		
+		//ListView<String> r = new ListView<String>();
+		
+		pane= new VBox();
+
+		Label l1=new Label("blabla");
+		Label l2=new Label("blabla");
+		Label l3=new Label("blabla");
+		Label l4=new Label("blabla");
+		
+		pane.getChildren().add(l1);
+		pane.getChildren().add(l2);
+		pane.getChildren().add(l3);
+		pane.getChildren().add(l4);
+		
+		pane.setBorder(new Border(new BorderStroke(Color.BLACK, 
+	            BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+		pane.setAlignment(Pos.CENTER);
+		this.getChildren().add(pane);
+		
 		
 		init();
 	}
@@ -21,9 +48,8 @@ public class Function extends Element {
 	public void resize() {
 		super.resize();
 		
-		Rectangle r = (Rectangle) this.getBack();
-		r.setWidth( this.getWidth());
-		r.setHeight(this.getHeight());
+		pane.setPrefWidth(this.getWidth());
+		pane.setPrefHeight(this.getHeight());
 	}
 	
 	public String getType() {
