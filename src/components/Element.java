@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import components.Connection;
+import controllers.MainController;
 import base.Main;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -37,7 +38,7 @@ public abstract class Element extends AnchorPane {
 	private static EventHandler<MouseEvent> clickEvent = (event) -> {
 		mouse_x = event.getSceneX() - ((Shape) event.getSource()).getParent().getLayoutX();
 		mouse_y = event.getSceneY() - ((Shape) event.getSource()).getParent().getLayoutY();
-		Main.setProprtis((Element) ((Shape) event.getSource()).getParent());
+		MainController.setProperties((Element) ((Shape) event.getSource()).getParent());
 	};
 	
 	private static EventHandler<MouseEvent> resizeEvent = (event) -> {
@@ -146,24 +147,28 @@ public abstract class Element extends AnchorPane {
 		this.rightConnect.setArcHeight(15);
 		this.rightConnect.setArcWidth(15);
 		this.rightConnect.setVisible(false);
+		this.rightConnect.setOnMouseDragged(moveEvent);
 		
 		this.bottomConnect = new Rectangle();
 		this.bottomConnect.setFill(Color.BLUE);
 		this.bottomConnect.setArcHeight(15);
 		this.bottomConnect.setArcWidth(15);
 		this.bottomConnect.setVisible(false);
+		this.bottomConnect.setOnMouseDragged(moveEvent);
 		
 		this.leftConnect = new Rectangle();
 		this.leftConnect.setFill(Color.BLUE);
 		this.leftConnect.setArcHeight(15);
 		this.leftConnect.setArcWidth(15);
 		this.leftConnect.setVisible(false);
+		this.leftConnect.setOnMouseDragged(moveEvent);
 		
 		this.topConnect = new Rectangle();
 		this.topConnect.setFill(Color.BLUE);
 		this.topConnect.setArcHeight(15);
 		this.topConnect.setArcWidth(15);
 		this.topConnect.setVisible(false);
+		this.topConnect.setOnMouseDragged(moveEvent);
 		
 		this.resize = new Rectangle();
 		resize.setOnMouseDragged(resizeEvent);

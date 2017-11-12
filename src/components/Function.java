@@ -22,7 +22,7 @@ public class Function extends Element {
 		Rectangle r=new Rectangle();
 		
 		
-		//ListView<String> r = new ListView<String>();
+		ListView<String> l = new ListView<String>();
 		
 		pane= new VBox();
 
@@ -35,6 +35,12 @@ public class Function extends Element {
 		pane.getChildren().add(l2);
 		pane.getChildren().add(l3);
 		pane.getChildren().add(l4);
+	
+		
+		l.getItems().addAll("ASDASD","ASDASD2","ASDASD3");
+		pane.getChildren().add(l);
+		
+		
 		
 		pane.setBorder(new Border(new BorderStroke(Color.BLACK, 
 	            BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
